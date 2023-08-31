@@ -15,16 +15,15 @@ export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Box ml={{ xs: '56px', md: '56px' }}>
+    <Box ml={{ xs: 0, md: '56px' }}>
       <Button onClick={() => setOpen(true)}>left</Button>
       <Drawer
         open={open}
         onClose={() => setOpen(false)}
         sx={(theme) => ({
-          [theme.breakpoints.up('xs')]: {
+          [theme.breakpoints.up('md')]: {
             '&.MuiModal-hidden .MuiDrawer-paper': {
-              width: '56px',
-              overflowX: 'hidden',
+              width: 56,
             },
             '.MuiBackdrop-root': {
               transition:
@@ -35,7 +34,9 @@ export default function TemporaryDrawer() {
         PaperProps={{
           sx: (theme) => ({
             width: 250,
-            [theme.breakpoints.up('xs')]: {
+            overflowX: 'hidden',
+
+            [theme.breakpoints.up('md')]: {
               visibility: 'visible !important',
               transform: 'unset !important',
               whiteSpace: 'nowrap',
