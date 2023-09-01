@@ -17,7 +17,13 @@ export default function TemporaryDrawer() {
       <Drawer
         open={open}
         onClose={() => setOpen(false)}
+        ModalProps={{ keepMounted: true }}
         sx={(theme) => ({
+          '.MuiPaper-root': {
+            width: 250,
+            overflowX: 'hidden',
+          },
+
           [theme.breakpoints.up('md')]: {
             '&.MuiModal-hidden .MuiDrawer-paper': {
               width: 56,
@@ -26,23 +32,15 @@ export default function TemporaryDrawer() {
               transition:
                 'opacity 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important',
             },
-          },
-        })}
-        PaperProps={{
-          sx: (theme) => ({
-            width: 250,
-            overflowX: 'hidden',
-
-            [theme.breakpoints.up('md')]: {
+            '.MuiPaper-root': {
               visibility: 'visible !important',
               transform: 'unset !important',
               whiteSpace: 'nowrap',
               transition:
                 'width 225ms cubic-bezier(0, 0, 0.2, 1) 0ms !important',
             },
-          }),
-        }}
-        ModalProps={{ keepMounted: true }}
+          },
+        })}
       >
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (

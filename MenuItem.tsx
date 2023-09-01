@@ -44,7 +44,6 @@ const MenuItem = ({ text, icon, isOpen }: MenuItemProps) => {
           }}
         >
           <ListItemIcon>{icon}</ListItemIcon>
-
           <ListItemText primary={text} />
         </ListItemButton>
       </ListItem>
